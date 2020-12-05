@@ -9,6 +9,7 @@ import {
   ThemeProvider,
   Toolbar,
   Typography,
+  makeStyles,
 } from "@material-ui/core";
 import theme from "../src/theme";
 
