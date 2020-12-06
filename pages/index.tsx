@@ -14,11 +14,23 @@ const initialValues: FieldInfo = {
   description: "",
 };
 
+const sleep = (time) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+  });
+};
+
 export default function Home() {
   return (
     <Card>
       <CardContent>
-        <FormikStepper initialValues={initialValues} onSubmit={() => {}}>
+        <FormikStepper
+          initialValues={initialValues}
+          onSubmit={async (values, formikhelpers) => {
+            await sleep(3000);
+            console.log("values", values);
+          }}
+        >
           <FormikStep label="Personal Data">
             <Box paddingBottom={2}>
               <Field
