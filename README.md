@@ -9,4 +9,4 @@
 - Material UI (React components for faster and easier web development)
 - Formik Material-UI (Easily combine formik with Material-UI)
 
-![Preview](app_img.png?raw=true)
+![Preview](app_preview.png?raw=true)
