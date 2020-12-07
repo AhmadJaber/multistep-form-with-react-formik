@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Card, CardContent } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
 import { CheckboxWithLabel, TextField } from "formik-material-ui";
-import { object, mixed, number } from "yup";
+import { object, mixed, number, string } from "yup";
 import { FieldInfo } from "../src/constants/FieldInfo";
 import { FormikStepper, FormikStep } from "../src/components";
 
@@ -31,7 +31,13 @@ export default function Home() {
             console.log("values", values);
           }}
         >
-          <FormikStep label="Personal Data">
+          <FormikStep
+            label="Personal Data"
+            validationSchema={object({
+              firstName: string().required().min(2).max(10),
+              lastName: string().min(2).max(10),
+            })}
+          >
             <Box paddingBottom={2}>
               <Field
                 name="firstName"

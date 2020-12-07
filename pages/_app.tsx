@@ -10,9 +10,18 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import theme from "../src/theme";
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: "768px",
+  },
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const classes = useStyles();
+
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -39,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Container>
+        <Container className={classes.root}>
           <Box marginTop={10}>
             <Component {...pageProps} />
           </Box>

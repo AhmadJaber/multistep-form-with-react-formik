@@ -36,7 +36,15 @@ export default function FormikStepper({
           setCompleted(true);
         } else {
           setStep((s) => s + 1);
-          // !something to try
+
+          /*
+            If i have multiple fields on the same step
+            we will see they show the validation error all at the same time after the first step!
+            If i want the second/third/fourth/etc steps with the same behaviour
+            as the first step regarding validation errors, then i have to use the next line.
+          */
+
+          formikHelpers.setTouched({});
         }
       }}
     >
